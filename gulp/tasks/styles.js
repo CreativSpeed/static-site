@@ -18,7 +18,7 @@ gulp.task('styles', () => {
     });
     return gulp.src('./app/assets/styles/styles.css')
     .pipe(postcss(config))
-    .on('error', function(err){
+    .on('error', function(err) {
         console.log(err.toString());
         this.emit('end');
     })
