@@ -7,6 +7,7 @@ const cssvars = require('postcss-simple-vars');
 const cssImport = require('postcss-import');
 const mixins = require('postcss-mixins');
 const cssMath = require('postcss-math');
+const cssnext = require('postcss-cssnext');
 
 function resolve(dir) {
     return path.join(__dirname, '..', '..', dir);
@@ -14,7 +15,7 @@ function resolve(dir) {
 
 gulp.task('styles', () => {
     let config = (file) => ({
-        plugins: [cssImport, cssMath, mixins, cssvars, nestedcss, autoprefixer]
+        plugins: [cssImport, cssnext, cssMath, mixins, cssvars, nestedcss, autoprefixer]
     });
     return gulp.src('./app/assets/styles/styles.css')
     .pipe(postcss(config))
