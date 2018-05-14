@@ -1083,11 +1083,39 @@ a {
     }
 
 .primary-nav a {
-        display: block;
-        color: #fff;
-        text-decoration: none;
+        color: #FFF;
         font-weight: 300;
-        padding: 12px 0;
+        text-decoration: none;
+        display: block;
+        padding: 5px 8px;
+        font-size: 12.8px;
+        font-size: .8rem;
+        background-color: rgba(47,85,114, 5);
+    }
+
+@media (min-width: 800px) {
+
+.primary-nav a {
+            font-size: 1rem;
+            padding: 12px 0;
+            background-color: transparent
+    }
+            .primary-nav a.is-current-link {
+                color: #fabb69 !important;
+            }
+    }
+
+.reveal-item {
+    opacity:  0;
+    transition: all 1.5s ease-out;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+}
+
+.reveal-item--is-visible {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1);
     }
 
 .site-header {
@@ -1105,8 +1133,12 @@ a {
 @media (min-width: 800px) {
 
 .site-header {
+        position: fixed;
         background-color: rgba(47,85,114, 0.3)
 }
+        .site-header--dark {
+            background-color: rgba(23, 51, 72, .85);
+        }
     }
 
 @media (min-width: 800px) {
@@ -1124,6 +1156,9 @@ a {
                 transform: translateX(-50%) scale(0.8);
         -webkit-transform-origin: 50% 0;
                 transform-origin: 50% 0;
+        transition: -webkit-transform .3s ease-out;
+        transition: transform .3s ease-out;
+        transition: transform .3s ease-out, -webkit-transform .3s ease-out;
         background-color: #2f5572;
         padding: 25px 36px;
     }
@@ -1135,6 +1170,10 @@ a {
             -webkit-transform: translateX(0);
                     transform: translateX(0)
     }
+            .site-header--dark .site-header__logo {
+                -webkit-transform: scale(.57);
+                        transform: scale(.57);
+            }
     }
 
 .site-header__logo__graphic {
@@ -1244,16 +1283,3 @@ a {
             -webkit-transform: scale(1);
                     transform: scale(1);
         }
-
-.reveal-item {
-    opacity:  0;
-    transition: all 1.5s ease-out;
-    -webkit-transform: scale(1.15);
-            transform: scale(1.15);
-}
-
-.reveal-item--is-visible {
-        opacity: 1;
-        -webkit-transform: scale(1);
-                transform: scale(1);
-    }
