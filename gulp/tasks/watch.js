@@ -15,10 +15,18 @@ gulp.task('watch', () => {
     gulp.watch('./app/assets/styles/**/*.css', () => {
         gulp.start('cssInject');
     });
+    gulp.watch('./app/assets/scripts/**/*..js', () => {
+        gulp.start('scriptsRefresh');
+    });
+});
+
+gulp.task('scriptsRefresh', ['scripts'],() => {
+   browserSync.reload();
 });
 
 gulp.task('cssInject', ['styles'], () => {
     return gulp.src('./app/temp/styles/styles.css')
     .pipe(browserSync.stream());
 });
+
 
